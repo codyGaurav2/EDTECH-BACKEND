@@ -1,0 +1,32 @@
+{
+  "name": "edtech-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "end": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codyGaurav2/EDTECH-BACKEND.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codyGaurav2/EDTECH-BACKEND/issues"
+  },
+  "homepage": "https://github.com/codyGaurav2/EDTECH-BACKEND#readme",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^9.0.0",
+    "nodemailer": "^7.0.11",
+    "nodemon": "^3.1.11",
+    "otp-generator": "^4.0.1"
+  }
+}
