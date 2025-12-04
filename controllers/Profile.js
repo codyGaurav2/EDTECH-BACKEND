@@ -45,3 +45,77 @@ exports.updateProfile = async(req,res) =>{
 
     }
 }
+
+//DELETE ACCOUNT 
+
+exports.deleteAccount = async(req,res) =>{
+    try{
+    //get id
+    const id = req.user.id;
+    //validation
+    const userDetails = await User.findById(id);
+    if(!userDetails){
+        return res.status(400).json({
+            success:false,
+            message:"User not found",
+        });
+    }
+    //delete profile
+    await Profile.findByIdAndDelete({_id:userDetails.additionalDetails});
+
+    //delete user
+
+    await User.findByIdAndDelete({_id:id});
+
+
+    //todo hw  = unroll user from unroled course
+
+    //explore what is crone job
+
+    //return res
+
+
+    return res.status(200).json({
+        success:true,
+        message:"User deleted successfull",
+
+    })
+    
+    
+
+    }catch(error){
+
+        
+    return res.status(500).json({
+        success:false,
+        message:"error",
+    })
+
+    }
+}
+
+//get all usr detailse
+
+exports.getAllUserDetails = async(req,res) =>{
+
+    try{
+        //getdata
+        const id = req.user.id;
+       // get user details
+       const userDetails = await User.findById(id).populate("additionalDetails").exec();
+       //return res
+       return res.status(200).json({
+        success:true,
+        message:"User data fetched successfully",
+       })
+
+    }catch(error){
+        return res.status(500).json({
+            success:false,
+            message:"errror",
+           });
+
+
+    }
+}
+
